@@ -3,117 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo - Tayná Araújo</title>
+    <title>Trabalho de Geografia: Capitalismo</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
+            overflow: hidden; /* Evita barras de rolagem */
         }
-        .resume-container {
-            max-width: 900px;
-            margin: 2rem auto;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            border-radius: 0.5rem;
-            overflow: hidden;
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            transform: scale(0.95);
         }
-        .section-title {
-            border-bottom: 2px solid #e2e8f0; /* slate-200 */
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1e293b; /* slate-800 */
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
         }
-        .job-entry {
-            border-left: 3px solid #cbd5e1; /* slate-300 */
-            padding-left: 1rem;
-            margin-bottom: 1.5rem;
+        .slide-content {
+            max-width: 800px;
+            text-align: center;
+        }
+        /* Efeito de fundo gradiente animado */
+        .animated-gradient {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
-<body>
+<body class="animated-gradient text-white antialiased">
 
-    <div class="resume-container bg-white">
-        <div class="grid grid-cols-1 md:grid-cols-3">
-            <!-- Coluna Esquerda (Azul) -->
-            <aside class="md:col-span-1 bg-slate-800 text-white p-8">
-                <div class="flex flex-col items-center md:items-start">
-                    <div style="background-image: url('taynafotoperfil.jpg')" 
-                         class="rounded-full w-36 h-36 border-4 border-slate-500 mb-6 bg-cover bg-center">
-                    </div>
-                    
-                    <h2 class="text-3xl font-bold text-slate-100">Tayná Araújo</h2>
-                    <p class="text-slate-300 mt-1">Vendedora & Comercial</p>
-                    
-                    <div class="mt-8 w-full">
-                        <h3 class="text-xl font-semibold border-b border-slate-600 pb-2 mb-4">Contato</h3>
-                        <div class="space-y-3 text-sm">
-                            <div>
-                                <h4 class="font-bold text-slate-300">Telefone</h4>
-                                <p class="text-slate-400">31 98234-8074</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-300">E-mail</h4>
-                                <p class="text-slate-400 break-words">taynaaraujomg@hotmail.com</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-300">Endereço</h4>
-                                <p class="text-slate-400">Rua Placidina, 32, Sagrada Família<br>Belo Horizonte, MG</p>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Container dos Slides -->
+    <div id="presentation-container">
+
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <div class="slide-content text-center">
+                <h1 class="text-5xl md:text-7xl font-black mb-4 tracking-tight">Capitalismo</h1>
+                <p class="text-2xl md:text-3xl font-bold text-sky-300 mb-8">O capitalismo é bom pra quem?</p>
+                <div class="text-lg text-slate-300">
+                    <p><strong>Disciplina:</strong> Geografia</p>
+                    <p><strong>Professora:</strong> Márcia</p>
+                    <p><strong>Turma:</strong> 3º Ano Informática B</p>
                 </div>
-            </aside>
-
-            <!-- Coluna Direita (Branca) -->
-            <main class="md:col-span-2 p-8">
-                <section id="objetivo">
-                    <h2 class="section-title">Objetivo</h2>
-                    <p class="text-slate-600 leading-relaxed">
-                        Forte capacidade de atendimento ao cliente, automotivação e capacidade de tomar a iniciativa, capacidade de trabalhar bem sob pressão, pontualidade e respeito a prazos estabelecidos, habilidade de trabalho em equipe. Procuro novos desafios profissionais e uma efetivação no mercado, visando o desenvolvimento de minhas habilidades e a geração de resultados, viabilizando um crescimento qualitativo e quantitativo para a empresa.
-                    </p>
-                </section>
-
-                <section id="formacao" class="mt-8">
-                    <h2 class="section-title">Formação</h2>
-                    <p class="text-slate-700 font-medium">Ensino Médio Completo</p>
-                </section>
-
-                <section id="experiencia" class="mt-8">
-                    <h2 class="section-title">Experiência Profissional</h2>
-                    <div class="space-y-6">
-                        <div class="job-entry">
-                            <p class="text-sm text-slate-500">04/03/2024 - 05/07/2024</p>
-                            <h3 class="text-lg font-semibold text-slate-700">SouQ</h3>
-                            <p class="font-medium text-slate-600">Cargo: Comercial, Vendas</p>
-                        </div>
-                        <div class="job-entry">
-                            <p class="text-sm text-slate-500">26/07/2021 - 25/07/2023</p>
-                            <h3 class="text-lg font-semibold text-slate-700">Constance</h3>
-                            <p class="font-medium text-slate-600">Cargo: Vendedor responsável</p>
-                        </div>
-                        <div class="job-entry">
-                            <p class="text-sm text-slate-500">09/02/2021 - 02/07/2021</p>
-                            <h3 class="text-lg font-semibold text-slate-700">Loccitane</h3>
-                            <p class="font-medium text-slate-600">Cargo: Comercial, Vendas</p>
-                        </div>
-                        <div class="job-entry">
-                            <p class="text-sm text-slate-500">23/10/2019 - 03/06/2020</p>
-                            <h3 class="text-lg font-semibold text-slate-700">Bicalho Calçados</h3>
-                            <p class="font-medium text-slate-600">Cargo: Comercial, Vendas</p>
-                        </div>
-                        <div class="job-entry">
-                            <p class="text-sm text-slate-500">20/12/2017 - 15/06/2018</p>
-                            <h3 class="text-lg font-semibold text-slate-700">Lumen Fidei Calçados e Bolsas Ltda</h3>
-                            <p class="font-medium text-slate-600">Cargo: Comercial, Vendas</p>
-                        </div>
-                    </div>
-                </section>
-            </main>
+            </div>
         </div>
+
+        <!-- Slide 2: O que é Capitalismo? -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">O que é o Capitalismo?</h2>
+                <p class="text-xl md:text-2xl leading-relaxed text-slate-200">
+                    É um sistema econômico baseado na <strong class="text-sky-300">propriedade privada</strong> dos meios de produção e na sua operação com fins de <strong class="text-sky-300">lucro</strong>. As decisões sobre oferta, demanda, preço e investimentos são, em grande parte, determinadas pelo <strong class="text-sky-300">livre mercado</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 3: A Conexão com a Globalização -->
+        <div class="slide">
+            <div class="slide-content">
+                 <h2 class="text-4xl md:text-5xl font-bold mb-6">Globalização & Revolução Industrial</h2>
+                <p class="text-xl md:text-2xl leading-relaxed text-slate-200">
+                    A Revolução Industrial intensificou a produção e a busca por novos mercados e matérias-primas. A <strong class="text-sky-300">Globalização</strong> é a fase mais avançada dessa expansão capitalista, conectando o mundo através do comércio, tecnologia e cultura.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Quem lucra com a Globalização? -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Quem lucra com a Globalização?</h2>
+                <ul class="text-left text-xl md:text-2xl space-y-4 list-disc pl-5">
+                    <li><strong class="text-sky-300">Grandes Corporações:</strong> Acessam mão de obra barata, novos mercados consumidores e otimizam sua produção em escala global.</li>
+                    <li><strong class="text-sky-300">Países Desenvolvidos:</strong> Sediam as matrizes das grandes empresas, controlam a tecnologia e o capital financeiro.</li>
+                    <li><strong class="text-sky-300">Consumidores (com poder de compra):</strong> Têm acesso a uma variedade maior de produtos com preços mais competitivos.</li>
+                     <li><strong class="text-sky-300">Investidores:</strong> Lucram com a especulação financeira e o crescimento das empresas multinacionais.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 5: Quem sofre com a Globalização? -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Quem sofre com a Globalização?</h2>
+                <ul class="text-left text-xl md:text-2xl space-y-4 list-disc pl-5">
+                    <li><strong class="text-red-400">Trabalhadores de países em desenvolvimento:</strong> Muitas vezes enfrentam condições de trabalho precárias, baixos salários e exploração.</li>
+                    <li><strong class="text-red-400">Pequenos Produtores Locais:</strong> Não conseguem competir com os preços e a escala das grandes corporações.</li>
+                    <li><strong class="text-red-400">O Meio Ambiente:</strong> A produção em massa e o transporte global geram poluição, desmatamento e esgotamento de recursos naturais.</li>
+                    <li><strong class="text-red-400">Trabalhadores de países desenvolvidos:</strong> Perdem empregos para países com mão de obra mais barata (terceirização).</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Slide 6: Conclusão -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Conclusão</h2>
+                <p class="text-xl md:text-2xl leading-relaxed text-slate-200 mb-4">
+                    O capitalismo e a globalização criaram uma imensa riqueza e inovação, mas essa prosperidade não é distribuída de forma igualitária.
+                </p>
+                <p class="text-2xl md:text-3xl font-bold text-sky-300">
+                    A questão não é se o sistema é "bom" ou "ruim", mas sim: <strong class="tracking-wide">bom para quem e a que custo?</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Créditos -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Grupo</h2>
+                <div class="text-2xl md:text-3xl space-y-3 text-slate-200">
+                    <p>Nome do Integrante 1</p>
+                    <p>Nome do Integrante 2</p>
+                    <p>Nome do Integrante 3</p>
+                    <p>Nome do Integrante 4</p>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <!-- Controles de Navegação -->
+    <div class="fixed bottom-5 right-5 flex space-x-3">
+        <button id="prevBtn" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-5 rounded-full shadow-lg transition-transform transform hover:scale-110 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button id="nextBtn" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-5 rounded-full shadow-lg transition-transform transform hover:scale-110 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Lógica JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentSlide = 0;
+
+            // Função para mostrar o slide atual
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+            }
+
+            // Função para ir para o próximo slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Função para voltar ao slide anterior
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Event Listeners para os botões
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Event Listeners para as setas do teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+
+            // Inicia a apresentação
+            showSlide(currentSlide);
+        });
+    </script>
 
 </body>
 </html>
